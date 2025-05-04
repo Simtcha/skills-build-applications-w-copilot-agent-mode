@@ -27,10 +27,11 @@ class WorkoutViewSet(viewsets.ModelViewSet):
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_url = "https://musical-disco-5jj9r764gp6c4px5-8000.app.github.dev"
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'teams': reverse('team-list', request=request, format=format),
-        'activities': reverse('activity-list', request=request, format=format),
-        'leaderboards': reverse('leaderboard-list', request=request, format=format),
-        'workouts': reverse('workout-list', request=request, format=format),
+        'users': codespace_url + reverse('user-list', request=request, format=format),
+        'teams': codespace_url + reverse('team-list', request=request, format=format),
+        'activities': codespace_url + reverse('activity-list', request=request, format=format),
+        'leaderboards': codespace_url + reverse('leaderboard-list', request=request, format=format),
+        'workouts': codespace_url + reverse('workout-list', request=request, format=format),
     })
